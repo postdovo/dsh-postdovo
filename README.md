@@ -16,20 +16,29 @@ It cannot change a post that is already published.
 
 ## Install
 
-In the DeepSeek Harness Web UI, open the Plugins page, choose **Install a third-party plugin** and enter:
+In DeepSeek Harness, open the Plugins page in the sidebar, add a plugin and enter:
 
     github:postdovo/dsh-postdovo
 
-Or from a terminal:
+Or from a terminal. The desktop app uses the profile `desktop`; if you start DeepSeek Harness with `npx @deepseek-ai/dsh web`, use `--profile web` instead:
 
-    dsh plugin --profile web add "github:postdovo/dsh-postdovo"
+    dsh plugin --profile desktop add "github:postdovo/dsh-postdovo"
 
-Then give it a PostDovo access token. In PostDovo, open the **AI Agents** page, create a token under **Access tokens** and copy it (it is shown once). Export it before starting DeepSeek Harness:
+## Give it a token
+
+In PostDovo, open the **AI Agents** page, create a token under **Access tokens** and copy it (it is shown once). DeepSeek Harness reads it from the `POSTDOVO_TOKEN` environment variable when it starts, so set it in the terminal window you start DeepSeek Harness from.
+
+**Mac app:** quit the app if it is open, then run both lines in Terminal. An app opened from the Dock or Launchpad does not see a variable exported in Terminal, so start it this way each time:
 
     export POSTDOVO_TOKEN=your-token
-    dsh web
+    "/Applications/DeepSeek Harness.app/Contents/MacOS/DeepSeek Harness"
 
-On Windows PowerShell use `$env:POSTDOVO_TOKEN = "your-token"`. Restart the profile after installing.
+**Without the app, or on Windows or Linux:** set the token and start DeepSeek Harness from the same terminal (needs Node.js):
+
+    export POSTDOVO_TOKEN=your-token
+    npx @deepseek-ai/dsh web
+
+On Windows PowerShell use `$env:POSTDOVO_TOKEN = "your-token"` instead of `export`. Restart DeepSeek Harness after installing the plugin.
 
 ## Check it
 
