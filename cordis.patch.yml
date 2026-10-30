@@ -1,0 +1,17 @@
+# Patch layer contributed by the dsh-postdovo bundle.
+#
+# One row: a @deepseek-ai/dsh-mcp-client instance that connects to PostDovo's MCP server over streamable HTTP and registers its
+# tools as mcp__postdovo__* (list_connected_accounts, create_single_post, schedule_single_post, ...).
+#
+# The PostDovo access token is read from the POSTDOVO_TOKEN environment variable when dsh starts (create one in PostDovo on the
+# AI Agents page, under Access tokens). It is never written into this file. Without it the server answers 401 and no tools appear.
+- insert:
+    - id: postdovo-mcp
+      name: '@deepseek-ai/dsh-mcp-client'
+      config:
+        serverName: postdovo
+        transport: streamable-http
+        url: https://app.postdovo.com/mcp
+        headers:
+          Authorization: !!js '`Bearer ${process.env.POSTDOVO_TOKEN}`'
+        failOnStartupError: false

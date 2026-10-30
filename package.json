@@ -1,0 +1,44 @@
+{
+  "name": "dsh-postdovo",
+  "version": "0.1.0",
+  "description": "DeepSeek Harness plugin that connects the agent to PostDovo over MCP: draft, schedule and publish social media posts on your connected accounts.",
+  "exports": {
+    "./package.json": "./package.json",
+    "./cordis.patch.yml": "./cordis.patch.yml"
+  },
+  "files": [
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "postdovo",
+    "mcp",
+    "social-media",
+    "scheduling"
+  ],
+  "author": {
+    "name": "PostDovo",
+    "url": "https://postdovo.com"
+  },
+  "homepage": "https://postdovo.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/postdovo/dsh-postdovo.git"
+  },
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  }
+}
